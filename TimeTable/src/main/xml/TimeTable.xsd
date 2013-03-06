@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.khveras.com/TimeTable"
+	xmlns:tns="http://www.khveras.com/TimeTable"
+	elementFormDefault="qualified">
+	<xs:import schemaLocation="http://www.codesynthesis.com/projects/xsstl/xsstl/iso3166-country-code.xsd" namespace="http://www.codesynthesis.com/xmlns/xsstl" />
+	
+	<xs:element name="timetable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="trip" minOccurs="0" maxOccurs="unbounded" type="tns:trip"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+
+	<xs:complexType name="trip">
+		
+		<xs:sequence>
+			<xs:element name="vehicleID">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="7" />
+						<xs:maxLength value="10" />
+						<xs:pattern value="(trn|bus).{4,7}" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="depStation" type="tns:station" />
+			<xs:element name="destStation" type="tns:station" />
+			<xs:element name="timeInWay">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="tripType" use="required" type="tns:tripType" />
+	</xs:complexType>
+
+
+	<xs:complexType name="station">
+		<xs:sequence>
+			<xs:element xmlns="http://www.codesynthesis.com/xmlns/xsstl" name="countryCode" type="ISO3166CountyCode"/>
+			<xs:element name="city">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="2" />
+						<xs:maxLength value="60" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="timeZone">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="GMT((-|\+)\d{1,2})?" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:simpleType name="tripType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TRAIN" />
+			<xs:enumeration value="BUS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	
+	
+</xs:schema>
