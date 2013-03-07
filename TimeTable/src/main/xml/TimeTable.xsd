@@ -11,6 +11,10 @@
 				<xs:element name="trip" minOccurs="0" maxOccurs="unbounded" type="tns:trip"/>
 			</xs:sequence>
 		</xs:complexType>
+		<xs:unique name="vehicleID">
+					<xs:selector xpath="tns:trip" /> 
+					<xs:field xpath="tns:vehicleID" /> 
+ 		</xs:unique>
 	</xs:element>
 	
 
@@ -38,7 +42,7 @@
 		</xs:sequence>
 		<xs:attribute name="tripType" use="required" type="tns:tripType" />
 	</xs:complexType>
-
+	
 
 	<xs:complexType name="station">
 		<xs:sequence>

@@ -3,7 +3,7 @@
 <tns:timetable xmlns:stl="http://www.codesynthesis.com/xmlns/xsstl" xmlns:tns="http://www.khveras.com/TimeTable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.khveras.com/TimeTable TimeTable.xsd ">
 
 	<tns:trip tripType="TRAIN">
-		<tns:vehicleID>trn2dj4n</tns:vehicleID>
+		<tns:vehicleID>trn2dj4d</tns:vehicleID>
 		<tns:depStation>
 			<tns:countryCode>BY</tns:countryCode>
 			<tns:city>Minsk</tns:city>
@@ -33,7 +33,7 @@
 	</tns:trip>
 	
 	<tns:trip tripType="TRAIN">
-		<tns:vehicleID>trnsddfd</tns:vehicleID>
+		<tns:vehicleID>trn2dj4n</tns:vehicleID>
 		<tns:depStation>
 			<tns:countryCode>BY</tns:countryCode>
 			<tns:city>Minsk</tns:city>
