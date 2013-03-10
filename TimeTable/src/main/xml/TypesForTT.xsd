@@ -8,15 +8,7 @@
 	<xs:complexType name="trip">
 		
 		<xs:sequence>
-			<xs:element name="vehicleID">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:minLength value="7" />
-						<xs:maxLength value="10" />
-						<xs:pattern value="(trn|bus).{4,7}" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
+			<xs:element name="vehicleID" type="tns:vehicleID" />
 			<xs:element name="depStation" type="tns:station" />
 			<xs:element name="destStation" type="tns:station" />
 			<xs:element name="timeInWay">
@@ -29,6 +21,14 @@
 		</xs:sequence>
 		<xs:attribute name="tripType" use="required" type="tns:tripType" />
 	</xs:complexType>
+	
+	<xs:simpleType name="vehicleID">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="7" />
+			<xs:maxLength value="10" />
+			<xs:pattern value="(trn|bus).{4,7}" />
+		</xs:restriction>
+	</xs:simpleType>
 	
 
 	<xs:complexType name="station">
