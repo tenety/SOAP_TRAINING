@@ -57,23 +57,22 @@
 		<wsdl:part name="getTrainByDestRespPart" element="tsn:getTrainByDestResponse" />
 	</wsdl:message>
 
-	<wsdl:portType name="addTripPortType">
+	<wsdl:portType name="timeTablePortType">
 		<wsdl:operation name="addTrip">
 			<wsdl:input name="addTripInput" message="wns:addTripRequestMsg" />
 		</wsdl:operation>
-	</wsdl:portType>
-	
-	<!-- TODO: remaining port types -->
-	
-	<wsdl:portType name="getTrainByDestPortType">
 		<wsdl:operation name="getTrainByDestination">
 			<wsdl:input name="getTrainByDestInput" message="wns:getTrainByDestRequestMsg" />
 			<wsdl:output name="getTrainByDestOutput" message="wns:getTrainByDestResponseMsg"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	
+	<!-- TODO: remaining port types -->
+	
 
-	<wsdl:binding name="addTripBinding" type="wns:addTripPortType">
+	
+
+	<wsdl:binding name="timeTableBinding" type="wns:timeTablePortType">
 		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 		<wsdl:operation name="addTrip">
 			<soap:operation soapAction="http://www.khveras.com/TimeTableService/addTrip" />
@@ -81,12 +80,6 @@
 				<soap:body use="literal" />
 			</wsdl:input>
 		</wsdl:operation>
-	</wsdl:binding>
-	
-	<!-- TODO: remaining bindings -->
-	
-	<wsdl:binding name="getTrainByDestBinding" type="wns:getTrainByDestPortType">
-		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
 		<wsdl:operation name="getTrainByDestination">
 			<soap:operation soapAction="http://www.khveras.com/TimeTableService/getTrainByDest" />
 			<wsdl:input name="getTrainByDestInput">
@@ -97,19 +90,22 @@
 			</wsdl:output>
 		</wsdl:operation>
 	</wsdl:binding>
+	
+	<!-- TODO: remaining bindings -->
+	
 
-	<wsdl:service name="addTripService">
-		<wsdl:port name="addTripPort" binding="wns:addTripBinding">
+
+	<wsdl:service name="timeTableService">
+		<wsdl:port name="addTripPort" binding="wns:timeTableBinding">
       		<soap:address location="http://www.khveras.com/TimeTableService/addTrip_SOAP_11.php"/>
+		</wsdl:port>
+		<wsdl:port name="getTrainByDestPort" binding="wns:timeTableBinding">
+      		<soap:address location="http://www.khveras.com/TimeTableService/getTrainByDest_SOAP_11.php"/>
 		</wsdl:port>
 	</wsdl:service>
 	
 	<!-- TODO: remaining services -->
 
-	<wsdl:service name="getTrainByDestinationService">
-		<wsdl:port name="getTrainByDestPort" binding="wns:getTrainByDestBinding">
-      		<soap:address location="http://www.khveras.com/TimeTableService/getTrainByDest_SOAP_11.php"/>
-		</wsdl:port>
-	</wsdl:service>
+
 
 </wsdl:definitions>
