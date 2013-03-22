@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="TimeTableService" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="timeTableBinding" type="wsdl" bindingName="{http://www.khveras.com/TimeTableService}timeTableBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/Andrei_Khveras/git/SOAP_TRAINING/TimeTable/src/main/xml/TimeTable.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\Andrei_Khveras\git\SOAP_TRAINING\TimeTable\src\main\xml\TimeTable.wsdl"><con:part><con:url>file:\C:\Users\Andrei_Khveras\git\SOAP_TRAINING\TimeTable\src\main\xml\TimeTable.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.khveras.com/TimeTableService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wns="http://www.khveras.com/TimeTableService" xmlns:tsn="http://www.khveras.com/TimeTableSchema">
+  <!--TYPES BLOCK-->
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.khveras.com/TimeTableSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.khveras.com/TimeTable/" xmlns:tps="http://www.khveras.com/TimeTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:import schemaLocation="TypesForTT.xsd" namespace="http://www.khveras.com/TimeTable"/>
+      <xsd:element name="operationResultResponse" type="xs:string"/>
+      <xsd:element name="addTripRequest" type="tps:trip"/>
+      <xsd:element name="editTrnDestRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="trnID" type="tps:vehicleID"/>
+            <xsd:element name="newDestination" type="tps:station"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addBusRequest" type="tps:trip"/>
+      <xsd:element name="deleteBusRequest" type="tps:vehicleID"/>
+      <xsd:element name="getTrnByDestRequest" type="tps:station"/>
+      <xsd:element name="getTrnByDestResponse" type="tps:trip"/>
+    </xsd:schema>
+  </wsdl:types>
+  <!--MESSAGE DEFINITIONS-->
+  <wsdl:message name="addTripRequestMsg">
+    <wsdl:part name="addTripInputPart" element="tsn:addTripRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addTripResponseMsg">
+    <wsdl:part name="addTripOutputPart" element="tsn:operationResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="editTrnDestRequestMsg">
+    <wsdl:part name="editTrnDestInputPart" element="tsn:editTrnDestRequest"/>
+  </wsdl:message>
+  <wsdl:message name="editTrnDestResponseMsg">
+    <wsdl:part name="editTrnDestinationOutputPart" element="tsn:operationResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addBusRequestMsg">
+    <wsdl:part name="addBusInputPart" element="tsn:addBusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addBusResponseMsg">
+    <wsdl:part name="addBusOutputPart" element="tsn:operationResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="deleteBusRequestMsg">
+    <wsdl:part name="deleteBusInputPart" element="tsn:deleteBusRequest"/>
+  </wsdl:message>
+  <wsdl:message name="deleteBusResponseMsg">
+    <wsdl:part name="deleteBusOutputPart" element="tsn:operationResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getTrnListByDestRequestMsg">
+    <wsdl:part name="getTrnByDestInputPart" element="tsn:getTrnByDestRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getTrnListByDestResponseMsg">
+    <wsdl:part name="getTrnByDestOutputPart" element="tsn:getTrnByDestResponse"/>
+  </wsdl:message>
+  <!--PORTTYPE BLOCK-->
+  <wsdl:portType name="timeTablePortType">
+    <wsdl:operation name="addTrip">
+      <wsdl:input name="addTripInput" message="wns:addTripRequestMsg"/>
+      <wsdl:output name="addTripOutput" message="wns:addTripResponseMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="editTrainDestination">
+      <wsdl:input name="editTrnDestInput" message="wns:editTrnDestRequestMsg"/>
+      <wsdl:output name="editTrnDestOutput" message="wns:editTrnDestResponseMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="addBus">
+      <wsdl:input name="addBusInput" message="wns:addBusRequestMsg"/>
+      <wsdl:output name="addBusOutput" message="wns:addBusResponseMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBus">
+      <wsdl:input name="deleteBusInput" message="wns:deleteBusRequestMsg"/>
+      <wsdl:output name="deleteBusOutput" message="wns:deleteBusResponseMsg"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainListByDestination">
+      <wsdl:input name="getTrnListByDestInput" message="wns:getTrnListByDestRequestMsg"/>
+      <wsdl:output name="getTrnListByDestOutput" message="wns:getTrnListByDestResponseMsg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--BINDING BLOCK-->
+  <wsdl:binding name="timeTableBinding" type="wns:timeTablePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="addTrip">
+      <soap:operation soapAction="http://www.khveras.com/TimeTableService/addTrip"/>
+      <wsdl:input name="addTripInput">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addTripOutput">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editTrainDestination">
+      <soap:operation soapAction="http://www.khveras.com/TimeTableService/editTrainDestination"/>
+      <wsdl:input name="editTrnDestInput">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="editTrnDestOutput">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBus">
+      <soap:operation soapAction="http://www.khveras.com/TimeTableService/addBus"/>
+      <wsdl:input name="addBusInput">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addBusOutput">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBus">
+      <soap:operation soapAction="http://www.khveras.com/TimeTableService/deleteBus"/>
+      <wsdl:input name="deleteBusInput">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBusOutput">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrainListByDestination">
+      <soap:operation soapAction="http://www.khveras.com/TimeTableService/getTrainByDestination"/>
+      <wsdl:input name="getTrnListByDestInput">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTrnListByDestOutput">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--SERVICE BLOCK-->
+  <wsdl:service name="timeTableService">
+    <wsdl:port name="timeTableService-soap11" binding="wns:timeTableBinding">
+      <soap:address location="http://www.khveras.com/TimeTableService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\C:\Users\Andrei_Khveras\git\SOAP_TRAINING\TimeTable\src\main\xml\TypesForTT.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.khveras.com/TimeTable" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.khveras.com/TimeTable">
+  <xs:import schemaLocation="http://www.codesynthesis.com/projects/xsstl/xsstl/iso3166-country-code.xsd" namespace="http://www.codesynthesis.com/xmlns/xsstl"/>
+  <xs:complexType name="trip">
+    <xs:sequence>
+      <xs:element name="vehicleID" type="tns:vehicleID"/>
+      <xs:element name="depStation" type="tns:station"/>
+      <xs:element name="destStation" type="tns:station"/>
+      <xs:element name="timeInWay">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="tripType" use="required" type="tns:tripType"/>
+  </xs:complexType>
+  <xs:simpleType name="vehicleID">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="7"/>
+      <xs:maxLength value="10"/>
+      <xs:pattern value="(trn|bus).{4,7}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="station">
+    <xs:sequence>
+      <xs:element name="countryCode" type="ISO3166CountyCode" xmlns="http://www.codesynthesis.com/xmlns/xsstl"/>
+      <xs:element name="city">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="timeZone">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="GMT((-|\+)\d{1,2})?"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tripType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TRAIN"/>
+      <xs:enumeration value="BUS"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://www.codesynthesis.com/projects/xsstl/xsstl/iso3166-country-code.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.codesynthesis.com/xmlns/xsstl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:stl="http://www.codesynthesis.com/xmlns/xsstl">
+  <xsd:annotation>
+    <xsd:documentation>Copyright (C) 2006-2007 Code Synthesis Tools CC
+
+      Redistribution and use with or without modification are permitted
+      under the terms of the new BSD license. See the accompanying LICENSE
+      file.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="ISO3166CountyCode">
+    <xsd:annotation>
+      <xsd:documentation>Two-letter (alpha-2) ISO 3166-1 code for one of the 243 countries.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AF"/>
+      <!--AFGHANISTAN-->
+      <xsd:enumeration value="AX"/>
+      <!--&Aring;LAND ISLANDS-->
+      <xsd:enumeration value="AL"/>
+      <!--ALBANIA-->
+      <xsd:enumeration value="DZ"/>
+      <!--ALGERIA-->
+      <xsd:enumeration value="AS"/>
+      <!--AMERICAN SAMOA-->
+      <xsd:enumeration value="AD"/>
+      <!--ANDORRA-->
+      <xsd:enumeration value="AO"/>
+      <!--ANGOLA-->
+      <xsd:enumeration value="AI"/>
+      <!--ANGUILLA-->
+      <xsd:enumeration value="AQ"/>
+      <!--ANTARCTICA-->
+      <xsd:enumeration value="AG"/>
+      <!--ANTIGUA AND BARBUDA-->
+      <xsd:enumeration value="AR"/>
+      <!--ARGENTINA-->
+      <xsd:enumeration value="AM"/>
+      <!--ARMENIA-->
+      <xsd:enumeration value="AW"/>
+      <!--ARUBA-->
+      <xsd:enumeration value="AU"/>
+      <!--AUSTRALIA-->
+      <xsd:enumeration value="AT"/>
+      <!--AUSTRIA-->
+      <xsd:enumeration value="AZ"/>
+      <!--AZERBAIJAN-->
+      <xsd:enumeration value="BS"/>
+      <!--BAHAMAS-->
+      <xsd:enumeration value="BH"/>
+      <!--BAHRAIN-->
+      <xsd:enumeration value="BD"/>
+      <!--BANGLADESH-->
+      <xsd:enumeration value="BB"/>
+      <!--BARBADOS-->
+      <xsd:enumeration value="BY"/>
+      <!--BELARUS-->
+      <xsd:enumeration value="BE"/>
+      <!--BELGIUM-->
+      <xsd:enumeration value="BZ"/>
+      <!--BELIZE-->
+      <xsd:enumeration value="BJ"/>
+      <!--BENIN-->
+      <xsd:enumeration value="BM"/>
+      <!--BERMUDA-->
+      <xsd:enumeration value="BT"/>
+      <!--BHUTAN-->
+      <xsd:enumeration value="BO"/>
+      <!--BOLIVIA-->
+      <xsd:enumeration value="BA"/>
+      <!--BOSNIA AND HERZEGOVINA-->
+      <xsd:enumeration value="BW"/>
+      <!--BOTSWANA-->
+      <xsd:enumeration value="BV"/>
+      <!--BOUVET ISLAND-->
+      <xsd:enumeration value="BR"/>
+      <!--BRAZIL-->
+      <xsd:enumeration value="IO"/>
+      <!--BRITISH INDIAN OCEAN TERRITORY-->
+      <xsd:enumeration value="BN"/>
+      <!--BRUNEI DARUSSALAM-->
+      <xsd:enumeration value="BG"/>
+      <!--BULGARIA-->
+      <xsd:enumeration value="BF"/>
+      <!--BURKINA FASO-->
+      <xsd:enumeration value="BI"/>
+      <!--BURUNDI-->
+      <xsd:enumeration value="KH"/>
+      <!--CAMBODIA-->
+      <xsd:enumeration value="CM"/>
+      <!--CAMEROON-->
+      <xsd:enumeration value="CA"/>
+      <!--CANADA-->
+      <xsd:enumeration value="CV"/>
+      <!--CAPE VERDE-->
+      <xsd:enumeration value="KY"/>
+      <!--CAYMAN ISLANDS-->
+      <xsd:enumeration value="CF"/>
+      <!--CENTRAL AFRICAN REPUBLIC-->
+      <xsd:enumeration value="TD"/>
+      <!--CHAD-->
+      <xsd:enumeration value="CL"/>
+      <!--CHILE-->
+      <xsd:enumeration value="CN"/>
+      <!--CHINA-->
+      <xsd:enumeration value="CX"/>
+      <!--CHRISTMAS ISLAND-->
+      <xsd:enumeration value="CC"/>
+      <!--COCOS (KEELING) ISLANDS-->
+      <xsd:enumeration value="CO"/>
+      <!--COLOMBIA-->
+      <xsd:enumeration value="KM"/>
+      <!--COMOROS-->
+      <xsd:enumeration value="CG"/>
+      <!--CONGO-->
+      <xsd:enumeration value="CD"/>
+      <!--CONGO, THE DEMOCRATIC REPUBLIC OF THE-->
+      <xsd:enumeration value="CK"/>
+      <!--COOK ISLANDS-->
+      <xsd:enumeration value="CR"/>
+      <!--COSTA RICA-->
+      <xsd:enumeration value="CI"/>
+      <!--COTE D'IVOIRE-->
+      <xsd:enumeration value="HR"/>
+      <!--CROATIA-->
+      <xsd:enumeration value="CU"/>
+      <!--CUBA-->
+      <xsd:enumeration value="CY"/>
+      <!--CYPRUS-->
+      <xsd:enumeration value="CZ"/>
+      <!--CZECH REPUBLIC-->
+      <xsd:enumeration value="DK"/>
+      <!--DENMARK-->
+      <xsd:enumeration value="DJ"/>
+      <!--DJIBOUTI-->
+      <xsd:enumeration value="DM"/>
+      <!--DOMINICA-->
+      <xsd:enumeration value="DO"/>
+      <!--DOMINICAN REPUBLIC-->
+      <xsd:enumeration value="EC"/>
+      <!--ECUADOR-->
+      <xsd:enumeration value="EG"/>
+      <!--EGYPT-->
+      <xsd:enumeration value="SV"/>
+      <!--EL SALVADOR-->
+      <xsd:enumeration value="GQ"/>
+      <!--EQUATORIAL GUINEA-->
+      <xsd:enumeration value="ER"/>
+      <!--ERITREA-->
+      <xsd:enumeration value="EE"/>
+      <!--ESTONIA-->
+      <xsd:enumeration value="ET"/>
+      <!--ETHIOPIA-->
+      <xsd:enumeration value="FK"/>
+      <!--FALKLAND ISLANDS (MALVINAS)-->
+      <xsd:enumeration value="FO"/>
+      <!--FAROE ISLANDS-->
+      <xsd:enumeration value="FJ"/>
+      <!--FIJI-->
+      <xsd:enumeration value="FI"/>
+      <!--FINLAND-->
+      <xsd:enumeration value="FR"/>
+      <!--FRANCE-->
+      <xsd:enumeration value="GF"/>
+      <!--FRENCH GUIANA-->
+      <xsd:enumeration value="PF"/>
+      <!--FRENCH POLYNESIA-->
+      <xsd:enumeration value="TF"/>
+      <!--FRENCH SOUTHERN TERRITORIES-->
+      <xsd:enumeration value="GA"/>
+      <!--GABON-->
+      <xsd:enumeration value="GM"/>
+      <!--GAMBIA-->
+      <xsd:enumeration value="GE"/>
+      <!--GEORGIA-->
+      <xsd:enumeration value="DE"/>
+      <!--GERMANY-->
+      <xsd:enumeration value="GH"/>
+      <!--GHANA-->
+      <xsd:enumeration value="GI"/>
+      <!--GIBRALTAR-->
+      <xsd:enumeration value="GR"/>
+      <!--GREECE-->
+      <xsd:enumeration value="GL"/>
+      <!--GREENLAND-->
+      <xsd:enumeration value="GD"/>
+      <!--GRENADA-->
+      <xsd:enumeration value="GP"/>
+      <!--GUADELOUPE-->
+      <xsd:enumeration value="GU"/>
+      <!--GUAM-->
+      <xsd:enumeration value="GT"/>
+      <!--GUATEMALA-->
+      <xsd:enumeration value="GG"/>
+      <!--GUERNSEY-->
+      <xsd:enumeration value="GN"/>
+      <!--GUINEA-->
+      <xsd:enumeration value="GW"/>
+      <!--GUINEA-BISSAU-->
+      <xsd:enumeration value="GY"/>
+      <!--GUYANA-->
+      <xsd:enumeration value="HT"/>
+      <!--HAITI-->
+      <xsd:enumeration value="HM"/>
+      <!--HEARD ISLAND AND MCDONALD ISLANDS-->
+      <xsd:enumeration value="VA"/>
+      <!--HOLY SEE (VATICAN CITY STATE)-->
+      <xsd:enumeration value="HN"/>
+      <!--HONDURAS-->
+      <xsd:enumeration value="HK"/>
+      <!--HONG KONG-->
+      <xsd:enumeration value="HU"/>
+      <!--HUNGARY-->
+      <xsd:enumeration value="IS"/>
+      <!--ICELAND-->
+      <xsd:enumeration value="IN"/>
+      <!--INDIA-->
+      <xsd:enumeration value="ID"/>
+      <!--INDONESIA-->
+      <xsd:enumeration value="IR"/>
+      <!--IRAN, ISLAMIC REPUBLIC OF-->
+      <xsd:enumeration value="IQ"/>
+      <!--IRAQ-->
+      <xsd:enumeration value="IE"/>
+      <!--IRELAND-->
+      <xsd:enumeration value="IM"/>
+      <!--ISLE OF MAN-->
+      <xsd:enumeration value="IL"/>
+      <!--ISRAEL-->
+      <xsd:enumeration value="IT"/>
+      <!--ITALY-->
+      <xsd:enumeration value="JM"/>
+      <!--JAMAICA-->
+      <xsd:enumeration value="JP"/>
+      <!--JAPAN-->
+      <xsd:enumeration value="JE"/>
+      <!--JERSEY-->
+      <xsd:enumeration value="JO"/>
+      <!--JORDAN-->
+      <xsd:enumeration value="KZ"/>
+      <!--KAZAKHSTAN-->
+      <xsd:enumeration value="KE"/>
+      <!--KENYA-->
+      <xsd:enumeration value="KI"/>
+      <!--KIRIBATI-->
+      <xsd:enumeration value="KP"/>
+      <!--KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF-->
+      <xsd:enumeration value="KR"/>
+      <!--KOREA, REPUBLIC OF-->
+      <xsd:enumeration value="KW"/>
+      <!--KUWAIT-->
+      <xsd:enumeration value="KG"/>
+      <!--KYRGYZSTAN-->
+      <xsd:enumeration value="LA"/>
+      <!--LAO PEOPLE'S DEMOCRATIC REPUBLIC-->
+      <xsd:enumeration value="LV"/>
+      <!--LATVIA-->
+      <xsd:enumeration value="LB"/>
+      <!--LEBANON-->
+      <xsd:enumeration value="LS"/>
+      <!--LESOTHO-->
+      <xsd:enumeration value="LR"/>
+      <!--LIBERIA-->
+      <xsd:enumeration value="LY"/>
+      <!--LIBYAN ARAB JAMAHIRIYA-->
+      <xsd:enumeration value="LI"/>
+      <!--LIECHTENSTEIN-->
+      <xsd:enumeration value="LT"/>
+      <!--LITHUANIA-->
+      <xsd:enumeration value="LU"/>
+      <!--LUXEMBOURG-->
+      <xsd:enumeration value="MO"/>
+      <!--MACAO-->
+      <xsd:enumeration value="MK"/>
+      <!--MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF-->
+      <xsd:enumeration value="MG"/>
+      <!--MADAGASCAR-->
+      <xsd:enumeration value="MW"/>
+      <!--MALAWI-->
+      <xsd:enumeration value="MY"/>
+      <!--MALAYSIA-->
+      <xsd:enumeration value="MV"/>
+      <!--MALDIVES-->
+      <xsd:enumeration value="ML"/>
+      <!--MALI-->
+      <xsd:enumeration value="MT"/>
+      <!--MALTA-->
+      <xsd:enumeration value="MH"/>
+      <!--MARSHALL ISLANDS-->
+      <xsd:enumeration value="MQ"/>
+      <!--MARTINIQUE-->
+      <xsd:enumeration value="MR"/>
+      <!--MAURITANIA-->
+      <xsd:enumeration value="MU"/>
+      <!--MAURITIUS-->
+      <xsd:enumeration value="YT"/>
+      <!--MAYOTTE-->
+      <xsd:enumeration value="MX"/>
+      <!--MEXICO-->
+      <xsd:enumeration value="FM"/>
+      <!--MICRONESIA, FEDERATED STATES OF-->
+      <xsd:enumeration value="MD"/>
+      <!--MOLDOVA, REPUBLIC OF-->
+      <xsd:enumeration value="MC"/>
+      <!--MONACO-->
+      <xsd:enumeration value="MN"/>
+      <!--MONGOLIA-->
+      <xsd:enumeration value="MS"/>
+      <!--MONTSERRAT-->
+      <xsd:enumeration value="MA"/>
+      <!--MOROCCO-->
+      <xsd:enumeration value="MZ"/>
+      <!--MOZAMBIQUE-->
+      <xsd:enumeration value="MM"/>
+      <!--MYANMAR-->
+      <xsd:enumeration value="NA"/>
+      <!--NAMIBIA-->
+      <xsd:enumeration value="NR"/>
+      <!--NAURU-->
+      <xsd:enumeration value="NP"/>
+      <!--NEPAL-->
+      <xsd:enumeration value="NL"/>
+      <!--NETHERLANDS-->
+      <xsd:enumeration value="AN"/>
+      <!--NETHERLANDS ANTILLES-->
+      <xsd:enumeration value="NC"/>
+      <!--NEW CALEDONIA-->
+      <xsd:enumeration value="NZ"/>
+      <!--NEW ZEALAND-->
+      <xsd:enumeration value="NI"/>
+      <!--NICARAGUA-->
+      <xsd:enumeration value="NE"/>
+      <!--NIGER-->
+      <xsd:enumeration value="NG"/>
+      <!--NIGERIA-->
+      <xsd:enumeration value="NU"/>
+      <!--NIUE-->
+      <xsd:enumeration value="NF"/>
+      <!--NORFOLK ISLAND-->
+      <xsd:enumeration value="MP"/>
+      <!--NORTHERN MARIANA ISLANDS-->
+      <xsd:enumeration value="NO"/>
+      <!--NORWAY-->
+      <xsd:enumeration value="OM"/>
+      <!--OMAN-->
+      <xsd:enumeration value="PK"/>
+      <!--PAKISTAN-->
+      <xsd:enumeration value="PW"/>
+      <!--PALAU-->
+      <xsd:enumeration value="PS"/>
+      <!--PALESTINIAN TERRITORY, OCCUPIED-->
+      <xsd:enumeration value="PA"/>
+      <!--PANAMA-->
+      <xsd:enumeration value="PG"/>
+      <!--PAPUA NEW GUINEA-->
+      <xsd:enumeration value="PY"/>
+      <!--PARAGUAY-->
+      <xsd:enumeration value="PE"/>
+      <!--PERU-->
+      <xsd:enumeration value="PH"/>
+      <!--PHILIPPINES-->
+      <xsd:enumeration value="PN"/>
+      <!--PITCAIRN-->
+      <xsd:enumeration value="PL"/>
+      <!--POLAND-->
+      <xsd:enumeration value="PT"/>
+      <!--PORTUGAL-->
+      <xsd:enumeration value="PR"/>
+      <!--PUERTO RICO-->
+      <xsd:enumeration value="QA"/>
+      <!--QATAR-->
+      <xsd:enumeration value="RE"/>
+      <!--REUNION-->
+      <xsd:enumeration value="RO"/>
+      <!--ROMANIA-->
+      <xsd:enumeration value="RU"/>
+      <!--RUSSIAN FEDERATION-->
+      <xsd:enumeration value="RW"/>
+      <!--RWANDA-->
+      <xsd:enumeration value="SH"/>
+      <!--SAINT HELENA-->
+      <xsd:enumeration value="KN"/>
+      <!--SAINT KITTS AND NEVIS-->
+      <xsd:enumeration value="LC"/>
+      <!--SAINT LUCIA-->
+      <xsd:enumeration value="PM"/>
+      <!--SAINT PIERRE AND MIQUELON-->
+      <xsd:enumeration value="VC"/>
+      <!--SAINT VINCENT AND THE GRENADINES-->
+      <xsd:enumeration value="WS"/>
+      <!--SAMOA-->
+      <xsd:enumeration value="SM"/>
+      <!--SAN MARINO-->
+      <xsd:enumeration value="ST"/>
+      <!--SAO TOME AND PRINCIPE-->
+      <xsd:enumeration value="SA"/>
+      <!--SAUDI ARABIA-->
+      <xsd:enumeration value="SN"/>
+      <!--SENEGAL-->
+      <xsd:enumeration value="CS"/>
+      <!--SERBIA AND MONTENEGRO-->
+      <xsd:enumeration value="SC"/>
+      <!--SEYCHELLES-->
+      <xsd:enumeration value="SL"/>
+      <!--SIERRA LEONE-->
+      <xsd:enumeration value="SG"/>
+      <!--SINGAPORE-->
+      <xsd:enumeration value="SK"/>
+      <!--SLOVAKIA-->
+      <xsd:enumeration value="SI"/>
+      <!--SLOVENIA-->
+      <xsd:enumeration value="SB"/>
+      <!--SOLOMON ISLANDS-->
+      <xsd:enumeration value="SO"/>
+      <!--SOMALIA-->
+      <xsd:enumeration value="ZA"/>
+      <!--SOUTH AFRICA-->
+      <xsd:enumeration value="GS"/>
+      <!--SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS-->
+      <xsd:enumeration value="ES"/>
+      <!--SPAIN-->
+      <xsd:enumeration value="LK"/>
+      <!--SRI LANKA-->
+      <xsd:enumeration value="SD"/>
+      <!--SUDAN-->
+      <xsd:enumeration value="SR"/>
+      <!--SURINAME-->
+      <xsd:enumeration value="SJ"/>
+      <!--SVALBARD AND JAN MAYEN-->
+      <xsd:enumeration value="SZ"/>
+      <!--SWAZILAND-->
+      <xsd:enumeration value="SE"/>
+      <!--SWEDEN-->
+      <xsd:enumeration value="CH"/>
+      <!--SWITZERLAND-->
+      <xsd:enumeration value="SY"/>
+      <!--SYRIAN ARAB REPUBLIC-->
+      <xsd:enumeration value="TW"/>
+      <!--TAIWAN, PROVINCE OF CHINA-->
+      <xsd:enumeration value="TJ"/>
+      <!--TAJIKISTAN-->
+      <xsd:enumeration value="TZ"/>
+      <!--TANZANIA, UNITED REPUBLIC OF-->
+      <xsd:enumeration value="TH"/>
+      <!--THAILAND-->
+      <xsd:enumeration value="TL"/>
+      <!--TIMOR-LESTE-->
+      <xsd:enumeration value="TG"/>
+      <!--TOGO-->
+      <xsd:enumeration value="TK"/>
+      <!--TOKELAU-->
+      <xsd:enumeration value="TO"/>
+      <!--TONGA-->
+      <xsd:enumeration value="TT"/>
+      <!--TRINIDAD AND TOBAGO-->
+      <xsd:enumeration value="TN"/>
+      <!--TUNISIA-->
+      <xsd:enumeration value="TR"/>
+      <!--TURKEY-->
+      <xsd:enumeration value="TM"/>
+      <!--TURKMENISTAN-->
+      <xsd:enumeration value="TC"/>
+      <!--TURKS AND CAICOS ISLANDS-->
+      <xsd:enumeration value="TV"/>
+      <!--TUVALU-->
+      <xsd:enumeration value="UG"/>
+      <!--UGANDA-->
+      <xsd:enumeration value="UA"/>
+      <!--UKRAINE-->
+      <xsd:enumeration value="AE"/>
+      <!--UNITED ARAB EMIRATES-->
+      <xsd:enumeration value="GB"/>
+      <!--UNITED KINGDOM-->
+      <xsd:enumeration value="US"/>
+      <!--UNITED STATES-->
+      <xsd:enumeration value="UM"/>
+      <!--UNITED STATES MINOR OUTLYING ISLANDS-->
+      <xsd:enumeration value="UY"/>
+      <!--URUGUAY-->
+      <xsd:enumeration value="UZ"/>
+      <!--UZBEKISTAN-->
+      <xsd:enumeration value="VU"/>
+      <!--VANUATU-->
+      <xsd:enumeration value="VE"/>
+      <!--VENEZUELA-->
+      <xsd:enumeration value="VN"/>
+      <!--VIET NAM-->
+      <xsd:enumeration value="VG"/>
+      <!--VIRGIN ISLANDS, BRITISH-->
+      <xsd:enumeration value="VI"/>
+      <!--VIRGIN ISLANDS, U.S.-->
+      <xsd:enumeration value="WF"/>
+      <!--WALLIS AND FUTUNA-->
+      <xsd:enumeration value="EH"/>
+      <!--WESTERN SAHARA-->
+      <xsd:enumeration value="YE"/>
+      <!--YEMEN-->
+      <xsd:enumeration value="ZM"/>
+      <!--ZAMBIA-->
+      <xsd:enumeration value="ZW"/>
+      <!--ZIMBABWE-->
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.khveras.com/TimeTableService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addBus" name="addBus" bindingOperationName="addBus" type="Request-Response" outputName="addBusOutput" inputName="addBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addTrip" name="addTrip" bindingOperationName="addTrip" type="Request-Response" outputName="addTripOutput" inputName="addTripInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/deleteBus" name="deleteBus" bindingOperationName="deleteBus" type="Request-Response" outputName="deleteBusOutput" inputName="deleteBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/editTrainDestination" name="editTrainDestination" bindingOperationName="editTrainDestination" type="Request-Response" outputName="editTrnDestOutput" inputName="editTrnDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/getTrainByDestination" name="getTrainListByDestination" bindingOperationName="getTrainListByDestination" type="Request-Response" outputName="getTrnListByDestOutput" inputName="getTrnListByDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation></con:interface><con:testSuite name="AddBusTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddBusPositiveTest" searchProperties="true" id="2b8b9f9e-f15a-4d0d-b4da-2252e3faa92d"><con:settings/><con:testStep type="request" name="AddBusValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addBus</con:operation><con:request name="AddBusValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+
+   <soapenv:Body>
+      <tim:addBusRequest tripType="BUS">
+         <tim1:vehicleID>busBBBBB</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>RU</tim1:countryCode>
+            <tim1:city>Moskow</tim1:city>
+            <tim1:timeZone>GMT+3</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>6</tim1:timeInWay>
+      </tim:addBusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addBus" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddBusAsTrainNegativeTest" searchProperties="true"><con:settings/><con:testStep type="request" name="AddBusAsTrainRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addBus</con:operation><con:request name="AddBusAsTrainRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tim:addBusRequest tripType="TRAIN">
+         <tim1:vehicleID>busBBBBB</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>RU</tim1:countryCode>
+            <tim1:city>Moskow</tim1:city>
+            <tim1:timeZone>GMT+3</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>6</tim1:timeInWay>
+      </tim:addBusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addBus" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UnknownTripTypeNegativeTest" searchProperties="true" id="c63f53b3-f087-4701-ad20-8873f2fa627e"><con:settings/><con:testStep type="request" name="UnknownTripTypeRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addBus</con:operation><con:request name="UnknownTripTypeRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tim:addBusRequest tripType="CAR">
+         <tim1:vehicleID>busBBBBB</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>RU</tim1:countryCode>
+            <tim1:city>Moskow</tim1:city>
+            <tim1:timeZone>GMT+3</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>6</tim1:timeInWay>
+      </tim:addBusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addBus" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="AddTripTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripPositiveTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tim:addTripRequest tripType="TRAIN">
+         <tim1:vehicleID>trnTTTTT</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Brest</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>4</tim1:timeInWay>
+      </tim:addTripRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripInvalidCredentialsTest" searchProperties="true"><con:settings/><con:testStep type="request" name="InvalidCredentialsRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="InvalidCredentialsRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tim:addTripRequest tripType="TRAIN">
+         <tim1:vehicleID>trnTTTTT</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Brest</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>4</tim1:timeInWay>
+      </tim:addTripRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob1</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TooLongTripNegativeTest" searchProperties="true"><con:settings/><con:testStep type="request" name="tooLongTripRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="tooLongTripRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>
+      <tim:addTripRequest tripType="TRAIN">
+         <tim1:vehicleID>trnTTTTT</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Brest</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>6</tim1:timeInWay>
+      </tim:addTripRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripEmptyTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripEmptyRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripEmptyRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:Username>${username}</wsse:Username>
+            <wsse:Password>${password}</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body><tim:addTripRequest tripType="TRAIN">
+         <tim1:vehicleID>trnTRTRT</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>0</tim1:timeInWay>
+      </tim:addTripRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8080" path="/" host="EPBYMINW0362" name="TimeTableMocking"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="addBusByXpath" interface="timeTableBinding" operation="addBus"><con:settings/><con:dispatchPath>declare namespace tim='http://www.khveras.com/TimeTableSchema'
+//tim:addBusRequest/@tripType</con:dispatchPath><con:dispatchStyle>XPATH</con:dispatchStyle><con:defaultResponse>DEFAULT</con:defaultResponse><con:response name="BUS" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Bus was added!</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addBus"/></con:response><con:response name="TRAIN" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Bus was NOT added: you should use 'BUS' triptype instead of 'TRAIN'!</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addBus"/></con:response><con:response name="DEFAULT" encoding="UTF-8"><con:settings/><con:script>import groovy.util.XmlSlurper
+def parsedContent = new XmlSlurper().parseText(mockRequest.requestContent)
+//parsing 'type' attribute from trip tag in the last request
+context.tripType=parsedContent.Body.addBusRequest.@tripType.toString()</con:script><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Bus was NOT added: expected tripType is 'BUS', but was '${tripType}'!</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addBus"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="addTripByScript" interface="timeTableBinding" operation="addTrip"><con:settings/><con:dispatchPath>import groovy.util.XmlSlurper
+
+def parsedContent = new XmlSlurper().parseText(mockRequest.requestContent)
+
+def user = parsedContent.Header.Security.UsernameToken.Username.toString()
+def pswd = parsedContent.Header.Security.UsernameToken.Password.toString()
+
+if (user!='bob'||pswd!='bob'){
+	context.username=user
+	context.password=pswd
+	return 'AuthFailure'
+}
+
+int tripLength = Integer.parseInt(parsedContent.Body.addTripRequest.timeInWay.toString())
+if (tripLength>5){
+	context.tripLength=tripLength
+	return 'TooLongTripFailure'
+}
+else if (tripLength==0){
+	return "EmptyResponse"
+}
+
+</con:dispatchPath><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:defaultResponse>AddTripSuccess</con:defaultResponse><con:response name="AddTripSuccess" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Trip was successfully added!</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:response name="TooLongTripFailure" encoding="UTF-8"><con:settings/><con:script>import groovy.util.XmlSlurper
+def parsedContent = new XmlSlurper().parseText(mockRequest.requestContent)
+//parsing 'type' attribute from trip tag in the last request
+context.tripLength=Integer.parseInt(parsedContent.Body.addTripRequest.timeInWay.toString())</con:script><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>500</faultcode>
+      <faultstring xml:lang="?">Too long trip</faultstring>
+      <detail>
+        Trips longer than 5 hours are not supported, Your trip is ${tripLength} hours long.
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:response name="EmptyResponse" encoding="UTF-8"><con:settings/><con:responseContent>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:response name="AuthFailure" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>400</faultcode>
+      <faultstring xml:lang="?">Invalid credentials: ${username} / ${password}</faultstring>
+      <detail>
+        Authentification failure
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties><con:property><con:name>lastTripType</con:name><con:value/></con:property></con:properties></con:mockService><con:properties/><con:wssContainer/></con:soapui-project>
