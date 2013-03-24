@@ -680,7 +680,7 @@
       <!--ZIMBABWE-->
     </xsd:restriction>
   </xsd:simpleType>
-</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.khveras.com/TimeTableService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addBus" name="addBus" bindingOperationName="addBus" type="Request-Response" outputName="addBusOutput" inputName="addBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addTrip" name="addTrip" bindingOperationName="addTrip" type="Request-Response" outputName="addTripOutput" inputName="addTripInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/deleteBus" name="deleteBus" bindingOperationName="deleteBus" type="Request-Response" outputName="deleteBusOutput" inputName="deleteBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/editTrainDestination" name="editTrainDestination" bindingOperationName="editTrainDestination" type="Request-Response" outputName="editTrnDestOutput" inputName="editTrnDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/getTrainByDestination" name="getTrainListByDestination" bindingOperationName="getTrainListByDestination" type="Request-Response" outputName="getTrnListByDestOutput" inputName="getTrnListByDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation></con:interface><con:testSuite name="AddBusTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddBusPositiveTest" searchProperties="true" id="2b8b9f9e-f15a-4d0d-b4da-2252e3faa92d"><con:settings/><con:testStep type="request" name="AddBusValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addBus</con:operation><con:request name="AddBusValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addBus" name="addBus" bindingOperationName="addBus" type="Request-Response" outputName="addBusOutput" inputName="addBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/addTrip" name="addTrip" bindingOperationName="addTrip" type="Request-Response" outputName="addTripOutput" inputName="addTripInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/deleteBus" name="deleteBus" bindingOperationName="deleteBus" type="Request-Response" outputName="deleteBusOutput" inputName="deleteBusInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/editTrainDestination" name="editTrainDestination" bindingOperationName="editTrainDestination" type="Request-Response" outputName="editTrnDestOutput" inputName="editTrnDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation><con:operation isOneWay="false" action="http://www.khveras.com/TimeTableService/getTrainByDestination" name="getTrainListByDestination" bindingOperationName="getTrainListByDestination" type="Request-Response" outputName="getTrnListByDestOutput" inputName="getTrnListByDestInput" receivesAttachments="false" sendsAttachments="false"><con:settings/></con:operation></con:interface><con:testSuite name="AddBusTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddBusPositiveTest" searchProperties="true" id="2b8b9f9e-f15a-4d0d-b4da-2252e3faa92d"><con:settings/><con:testStep type="request" name="AddBusValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addBus</con:operation><con:request name="AddBusValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -756,7 +756,7 @@
          <tim1:timeInWay>6</tim1:timeInWay>
       </tim:addBusRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addBus" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="AddTripTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripPositiveTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addBus" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="AddTripTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripPositiveTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -781,7 +781,7 @@
          <tim1:timeInWay>4</tim1:timeInWay>
       </tim:addTripRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripInvalidCredentialsTest" searchProperties="true"><con:settings/><con:testStep type="request" name="InvalidCredentialsRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="InvalidCredentialsRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripInvalidCredentialsTest" searchProperties="true"><con:settings/><con:testStep type="request" name="InvalidCredentialsRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="InvalidCredentialsRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -806,7 +806,7 @@
          <tim1:timeInWay>4</tim1:timeInWay>
       </tim:addTripRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob1</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TooLongTripNegativeTest" searchProperties="true"><con:settings/><con:testStep type="request" name="tooLongTripRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="tooLongTripRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob1</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TooLongTripNegativeTest" searchProperties="true"><con:settings/><con:testStep type="request" name="tooLongTripRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="tooLongTripRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -831,7 +831,7 @@
          <tim1:timeInWay>6</tim1:timeInWay>
       </tim:addTripRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripEmptyTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripEmptyRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripEmptyRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://EPBYMINW0362:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddTripEmptyTest" searchProperties="true"><con:settings/><con:testStep type="request" name="addTripEmptyRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>addTrip</con:operation><con:request name="addTripEmptyRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
    <soapenv:Header>
       <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
          <wsse:UsernameToken wsu:Id="UsernameToken" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -855,7 +855,57 @@
          <tim1:timeInWay>0</tim1:timeInWay>
       </tim:addTripRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8080" path="/" host="EPBYMINW0362" name="TimeTableMocking"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="addBusByXpath" interface="timeTableBinding" operation="addBus"><con:settings/><con:dispatchPath>declare namespace tim='http://www.khveras.com/TimeTableSchema'
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:username>bob</con:username><con:password>bob</con:password><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/addTrip" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="EditTrnDestTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="EditValidTrnTest" searchProperties="true"><con:settings/><con:testStep type="request" name="EditTrnDestValidRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>editTrainDestination</con:operation><con:request name="EditTrnDestValidRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:editTrnDestRequest>
+         <trnID>trnXXXXX</trnID>
+         <newDestination>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </newDestination>
+      </tim:editTrnDestRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/editTrainDestination" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="InvalidTrnIdTest" searchProperties="true"><con:settings/><con:testStep type="request" name="InvalidTrnIdRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>editTrainDestination</con:operation><con:request name="InvalidTrnIdRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:editTrnDestRequest>
+         <trnID>trdXXXX</trnID>
+         <newDestination>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </newDestination>
+      </tim:editTrnDestRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/editTrainDestination" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UnsupportedCountryTest" searchProperties="true"><con:settings/><con:testStep type="request" name="UnsupportedCountryRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>editTrainDestination</con:operation><con:request name="UnsupportedCountryRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:editTrnDestRequest>
+         <trnID>trnDDDDD</trnID>
+         <newDestination>
+            <tim1:countryCode>PL</tim1:countryCode>
+            <tim1:city>Warsaw</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </newDestination>
+      </tim:editTrnDestRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.khveras.com/TimeTableService/editTrainDestination" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="DeleteBusTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteBusTest" searchProperties="true"><con:settings/><con:testStep type="request" name="DeleteBusRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>deleteBus</con:operation><con:request name="DeleteBusRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:deleteBusRequest>busBBBBB</tim:deleteBusRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="GetTrnByDestTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetTrnByDestTest" searchProperties="true"><con:settings/><con:testStep type="request" name="GetTrnByDestRequest"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>timeTableBinding</con:interface><con:operation>getTrainListByDestination</con:operation><con:request name="GetTrnByDestRequest"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:getTrnByDestRequest>
+         <tim1:countryCode>BY</tim1:countryCode>
+         <tim1:city>Minsk</tim1:city>
+         <tim1:timeZone>GMT+2</tim1:timeZone>
+      </tim:getTrnByDestRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8080" path="/" host="EPBYMINW0362" name="TimeTableMocking"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="addBusByXpath" interface="timeTableBinding" operation="addBus"><con:settings/><con:dispatchPath>declare namespace tim='http://www.khveras.com/TimeTableSchema'
 //tim:addBusRequest/@tripType</con:dispatchPath><con:dispatchStyle>XPATH</con:dispatchStyle><con:defaultResponse>DEFAULT</con:defaultResponse><con:response name="BUS" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
    <soapenv:Header/>
    <soapenv:Body>
@@ -926,4 +976,93 @@ context.tripLength=Integer.parseInt(parsedContent.Body.addTripRequest.timeInWay.
       </detail>
     </soapenv:Fault>
   </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties><con:property><con:name>lastTripType</con:name><con:value/></con:property></con:properties></con:mockService><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/addTrip"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="editTrainDestinationQuery" interface="timeTableBinding" operation="editTrainDestination"><con:settings/><con:dispatchStyle>QUERY_MATCH</con:dispatchStyle><con:defaultResponse>SuccessOperation</con:defaultResponse><con:response name="SuccessOperation" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Train destination has been updated</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/editTrainDestination"/></con:response><con:response name="InvalidTrnIDResponse" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>401</faultcode>
+      <faultstring xml:lang="?">Invalid vehicle ID</faultstring>
+      <detail>
+        Vehicle ID for train should start from 'trn' and be 8 symbols long
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/editTrainDestination"/></con:response><con:response name="UnsupportedDestResponse" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>401</faultcode>
+      <faultstring xml:lang="?">Invalid destination</faultstring>
+      <detail>
+        Destination country you selected is not supported
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/editTrainDestination"/></con:response><con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:query><con:name>ValidTrnID</con:name><con:query>declare namespace tim1='http://www.khveras.com/TimeTable';
+declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tim='http://www.khveras.com/TimeTableSchema';
+
+starts-with(//tim:editTrnDestRequest/trnID/text(),'trn')
+and (string-length(//tim:editTrnDestRequest/trnID/text())=8)
+and not(number(//tim:editTrnDestRequest/newDestination/tim1:countryCode/text()='PL'))</con:query><con:match>true</con:match><con:response>SuccessOperation</con:response></con:query><con:query><con:name>InvalidVehicleID</con:name><con:query>declare namespace tim1='http://www.khveras.com/TimeTable';
+declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tim='http://www.khveras.com/TimeTableSchema';
+
+not(starts-with(//tim:editTrnDestRequest/trnID/text(),'trn'))
+or not(string-length(//tim:editTrnDestRequest/trnID/text())=8)</con:query><con:match>true</con:match><con:response>InvalidTrnIDResponse</con:response></con:query><con:query><con:name>InsupportedCountry</con:name><con:query>declare namespace tim1='http://www.khveras.com/TimeTable';
+declare namespace soapenv='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tim='http://www.khveras.com/TimeTableSchema';
+
+//tim:editTrnDestRequest/newDestination/tim1:countryCode/text()='PL'</con:query><con:match>true</con:match><con:response>UnsupportedDestResponse</con:response></con:query></con:dispatchConfig></con:mockOperation><con:mockOperation name="deleteBusSequence" interface="timeTableBinding" operation="deleteBus"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Success" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Bus was successfully deleted!</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/deleteBus"/></con:response><con:response name="FailResponse" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>401</faultcode>
+      <detail>
+        Failed to delete bus
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/deleteBus"/></con:response><con:response name="SeeLog" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:operationResultResponse>Operation completed with 1 warning. See log for more details.</tim:operationResultResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/deleteBus"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getTrainListByDestinationRandom" interface="timeTableBinding" operation="getTrainListByDestination"><con:settings/><con:dispatchStyle>RANDOM</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="FakeSuccessResponse" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tim="http://www.khveras.com/TimeTableSchema" xmlns:tim1="http://www.khveras.com/TimeTable">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tim:getTrnByDestResponse tripType="?">
+         <tim1:vehicleID>trnXXXXX</tim1:vehicleID>
+         <tim1:depStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Minsk</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:depStation>
+         <tim1:destStation>
+            <tim1:countryCode>BY</tim1:countryCode>
+            <tim1:city>Gomel</tim1:city>
+            <tim1:timeZone>GMT+2</tim1:timeZone>
+         </tim1:destStation>
+         <tim1:timeInWay>4</tim1:timeInWay>
+      </tim:getTrnByDestResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/getTrainByDestination"/></con:response><con:response name="FakeFailResponse" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <soapenv:Fault>
+      <faultcode>501</faultcode>
+      <faultstring xml:lang="?">Error obtaining train list</faultstring>
+      <detail>
+        Please, try again in 3 minutes
+      </detail>
+    </soapenv:Fault>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/getTrainByDestination"/></con:response><con:response name="FakeEmptyResponse" encoding="UTF-8"><con:settings/><con:responseContent>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.khveras.com/TimeTableService/getTrainByDestination"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties><con:property><con:name>lastTripType</con:name><con:value/></con:property></con:properties></con:mockService><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
