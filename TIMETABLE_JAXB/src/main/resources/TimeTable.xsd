@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.khveras.com/TimeTable"
+	xmlns:tns="http://www.khveras.com/TimeTable"
+	elementFormDefault="qualified">
+	<xs:import schemaLocation="http://www.codesynthesis.com/projects/xsstl/xsstl/iso3166-country-code.xsd" namespace="http://www.codesynthesis.com/xmlns/xsstl" />
+	<xs:include schemaLocation="TypesForTT.xsd" />
+	
+	<xs:element name="timetable">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="trip" minOccurs="0" maxOccurs="unbounded" type="tns:trip"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="vehicleID">
+					<xs:selector xpath="tns:trip" /> 
+					<xs:field xpath="tns:vehicleID" /> 
+ 		</xs:unique>
+	</xs:element>
+
+	
+	
+</xs:schema>
