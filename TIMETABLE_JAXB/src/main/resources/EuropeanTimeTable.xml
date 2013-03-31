@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:timetable xmlns:stl="http://www.codesynthesis.com/xmlns/xsstl" xmlns:tns="http://www.khveras.com/TimeTable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.khveras.com/TimeTable TimeTable.xsd " region="Europe">
+
+	<tns:trip tripType="TRAIN">
+		<tns:vehicleID>trn2dj4d</tns:vehicleID>
+		<tns:depStation>
+			<tns:countryCode>BY</tns:countryCode>
+			<tns:city>Minsk</tns:city>
+			<tns:timeZone>GMT+2</tns:timeZone>
+		</tns:depStation>
+		<tns:destStation>
+			<tns:countryCode>PL</tns:countryCode>
+			<tns:city>Warsaw</tns:city>
+			<tns:timeZone>GMT+3</tns:timeZone>
+		</tns:destStation>
+		<tns:timeInWay>05:40</tns:timeInWay>
+	</tns:trip>
+	
+	<tns:trip tripType="BUS">
+		<tns:vehicleID>busgfdh</tns:vehicleID>
+		<tns:depStation>
+			<tns:countryCode>DE</tns:countryCode>
+			<tns:city>Berlin</tns:city>
+			<tns:timeZone>GMT+1</tns:timeZone>
+		</tns:depStation>
+		<tns:destStation>
+			<tns:countryCode>RU</tns:countryCode>
+			<tns:city>Moscow</tns:city>
+			<tns:timeZone>GMT+3</tns:timeZone>
+		</tns:destStation>
+		<tns:timeInWay>04:30</tns:timeInWay>
+	</tns:trip>
+	
+	<tns:trip tripType="TRAIN">
+		<tns:vehicleID>trn2dj4n</tns:vehicleID>
+		<tns:depStation>
+			<tns:countryCode>BY</tns:countryCode>
+			<tns:city>Minsk</tns:city>
+			<tns:timeZone>GMT</tns:timeZone>
+		</tns:depStation>
+		<tns:destStation>
+			<tns:countryCode>GB</tns:countryCode>
+			<tns:city>London</tns:city>
+			<tns:timeZone>GMT-3</tns:timeZone>
+		</tns:destStation>
+		<tns:timeInWay>01:20</tns:timeInWay>
+	</tns:trip>
+	
+	<tns:trip tripType="TRAIN">
+		<tns:vehicleID>trnsddfd</tns:vehicleID>
+		<tns:depStation>
+			<tns:countryCode>BY</tns:countryCode>
+			<tns:city>Minsk</tns:city>
+			<tns:timeZone>GMT</tns:timeZone>
+		</tns:depStation>
+		<tns:destStation>
+			<tns:countryCode>PL</tns:countryCode>
+			<tns:city>M. Morye</tns:city>
+			<tns:timeZone>GMT-3</tns:timeZone>
+		</tns:destStation>
+		<tns:timeInWay>00:40</tns:timeInWay>
+	</tns:trip>
+	
+	<tns:trip tripType="BUS">
+		<tns:vehicleID>trnfdgfd</tns:vehicleID>
+		<tns:depStation>
+			<tns:countryCode>DE</tns:countryCode>
+			<tns:city>Gerpot</tns:city>
+			<tns:timeZone>GMT+5</tns:timeZone>
+		</tns:depStation>
+		<tns:destStation>
+			<tns:countryCode>GB</tns:countryCode>
+			<tns:city>M. Morye</tns:city>
+			<tns:timeZone>GMT-2</tns:timeZone>
+		</tns:destStation>
+		<tns:timeInWay>01:20</tns:timeInWay>
+	</tns:trip>
+	
+	
+</tns:timetable>

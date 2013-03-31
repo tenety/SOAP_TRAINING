@@ -6,7 +6,7 @@
 //
 
 
-package com.khveras.jaxb.marshalling;
+package com.khveras.jaxb.hierarchy;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -183,5 +183,11 @@ public class Trip {
     public void setTripType(TripType value) {
         this.tripType = value;
     }
+
+	@Override
+	public String toString() {
+		return "Trip [tripType=" + tripType +", vehicleID=" + vehicleID + ",\ndepStation=" + depStation
+				+ ",\ndestStation=" + destStation + ",\ntimeInWay=" + timeInWay+ "]";
+	}
 
 }

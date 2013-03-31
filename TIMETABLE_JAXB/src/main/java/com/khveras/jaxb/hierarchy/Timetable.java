@@ -6,12 +6,13 @@
 //
 
 
-package com.khveras.jaxb.marshalling;
+package com.khveras.jaxb.hierarchy;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -42,6 +43,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "timetable")
 public class Timetable {
 
+	@XmlAttribute(required = true)
+    protected String region;
+	
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	
     protected List<Trip> trip;
 
     /**
@@ -72,5 +84,21 @@ public class Timetable {
         }
         return this.trip;
     }
+
+	@Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		result.append ("Timetable [region=" + region + "]\n");
+		if (trip.isEmpty()){
+			result.append("\t <No trips>");
+		}
+		else{
+			for (Trip item: trip){
+				result.append("\n"+item+"\n");
+			}
+		}
+		
+		return result.toString();
+	}
 
 }

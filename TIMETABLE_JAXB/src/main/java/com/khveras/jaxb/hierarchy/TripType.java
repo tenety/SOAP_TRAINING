@@ -6,7 +6,7 @@
 //
 
 
-package com.khveras.jaxb.marshalling;
+package com.khveras.jaxb.hierarchy;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;

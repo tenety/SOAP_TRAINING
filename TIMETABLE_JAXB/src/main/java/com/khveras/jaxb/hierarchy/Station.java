@@ -6,7 +6,7 @@
 //
 
 
-package com.khveras.jaxb.marshalling;
+package com.khveras.jaxb.hierarchy;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -134,5 +134,11 @@ public class Station {
     public void setTimeZone(String value) {
         this.timeZone = value;
     }
+
+	@Override
+	public String toString() {
+		return "Station [countryCode=" + countryCode + ", city=" + city
+				+ ", timeZone=" + timeZone + "]";
+	}
 
 }
