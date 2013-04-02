@@ -7,6 +7,9 @@ import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 
 public class JunitSpeedTestsListener extends RunListener {
+	
+	public static String currentTestMethod;
+	
 	/**
      * Called before any tests have been run.
      *
@@ -24,6 +27,8 @@ public class JunitSpeedTestsListener extends RunListener {
      */
     public void testRunFinished(Result result) throws Exception {
     	Logger.getLogger().printTotals();
+    	Logger.getLogger().saveTotalReport();
+    	Logger.getLogger().log(LogLevel.JUNIT, "Tests run finished!"+(Logger.SKIP_SAVING_REPORT?"":" See report in '"+Logger.getLogger().getReportFullPath()+"' file"));
     }
 
     /**
@@ -33,7 +38,8 @@ public class JunitSpeedTestsListener extends RunListener {
      * (generally a class and method name)
      */
     public void testStarted(Description description) throws Exception {
-    	Logger.getLogger().log(LogLevel.JUNIT, "Test started: "+description.getClassName()+" - "+description.getMethodName());
+    	currentTestMethod = description.getMethodName();
+    	Logger.getLogger().log(LogLevel.JUNIT, "Test started: "+description.getMethodName());
     }
 
     /**
@@ -42,7 +48,7 @@ public class JunitSpeedTestsListener extends RunListener {
      * @param description the description of the test that just ran
      */
     public void testFinished(Description description) throws Exception {
-    	Logger.getLogger().log(LogLevel.JUNIT, "Test finished: "+description.getClassName()+" - "+description.getMethodName());
+    	Logger.getLogger().log(LogLevel.JUNIT, "Test finished: "+description.getMethodName());
     }
 
     /**

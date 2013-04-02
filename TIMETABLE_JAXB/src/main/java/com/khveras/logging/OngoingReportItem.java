@@ -12,6 +12,10 @@ public class OngoingReportItem implements IReportItem {
 	public String getPresentation() {
 		return prefix+message;
 	}
+
+	public String getAppendBlock() {
+		return getPresentation();
+	}
 	
 	
 }

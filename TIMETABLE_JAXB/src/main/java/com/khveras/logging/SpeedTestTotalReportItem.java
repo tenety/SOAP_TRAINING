@@ -1,53 +1,55 @@
 package com.khveras.logging;
 
 public class SpeedTestTotalReportItem implements IReportItem {
-	private IReportItem previousRepItem;
 
+	private String testName;
 	private long totalTime;
 	private long totalBytes;
 	private int cycles;
 	private long avgSpeed;
 	
-	public SpeedTestTotalReportItem(long totalTime, long totalBytes, int cycles, long avgSpeed){
+	public SpeedTestTotalReportItem(String testName, long totalTime, long totalBytes, int cycles, long avgSpeed){
+		this.testName=testName;
 		this.totalTime=totalTime;
 		this.totalBytes=totalBytes;
 		this.cycles=cycles;
 		this.avgSpeed=avgSpeed;
 	}
 	
-	public SpeedTestTotalReportItem(IReportItem previousRepItem, long totalTime, long totalBytes, int cycles, long avgSpeed){
-		this (totalTime, totalBytes, cycles, avgSpeed);
-		this.previousRepItem=previousRepItem;
-
-	}
 	
 	public String getPresentation() {
 		StringBuilder result = new StringBuilder();
-		result.append(">>> TEST RUN TOTALS:\n");
-		if (!(previousRepItem instanceof SpeedTestTotalReportItem)){
-			result.append(repeatSymbol("-", 30)+"\n");
-			//Appending column headers
-			result.append("| Total Time, ms ");
-			result.append("| Bytes Proceed ");
-			result.append("| Cycles ");
-			result.append("| Avg. Speed, kb/s |\n");
-			result.append(repeatSymbol("-", 30)+"\n");
-		}
-		
-		
-		// Appending values
-		result.append(formatToLength("| "+totalTime, 8));
-		result.append(formatToLength(" | "+totalBytes, 10));
-		result.append(formatToLength(" | "+cycles, 10));
-		result.append(formatToLength(" | "+avgSpeed, 10));
-		result.append(repeatSymbol("-", 30)+"\n");
-		
+		result.append(">>> TEST RUN TOTALS:"+Logger.LINE_SEPARATOR);
+
+		result.append(repeatSymbol("-", 95)+Logger.LINE_SEPARATOR);
+		//Appending column headers
+		result.append("| "+formatToLength("Test name", 30));
+		result.append(" | "+formatToLength("Total Time, ms", 14));
+		result.append(" | "+formatToLength("Bytes Proceed", 13));
+		result.append(" | "+formatToLength("Cycles", 6));
+		result.append(" | "+formatToLength("Avg. Speed, kb/s", 16)+" |"+Logger.LINE_SEPARATOR);
+		result.append(repeatSymbol("-",95)+Logger.LINE_SEPARATOR);
+		result.append(getAppendBlock());
 		return result.toString();
 	}
 	
+	
+	public String getAppendBlock() {
+		StringBuilder result = new StringBuilder();
+		// Appending values
+		result.append("| "+formatToLength(testName, 30));
+		result.append(" | "+formatToLength(Long.toString(totalTime), 14));
+		result.append(" | "+formatToLength(Long.toString(totalBytes), 13));
+		result.append(" | "+formatToLength(Integer.toString(cycles), 6));
+		result.append(" | "+formatToLength(Long.toString(avgSpeed), 16)+" |"+Logger.LINE_SEPARATOR);
+		result.append(repeatSymbol("-", 95));
+		return result.toString();
+	}
+	
+	
 	private String formatToLength(String str, int length){
 		int space = (length-str.length()) / 2;
-		return repeatSymbol(" ", space)+str+repeatSymbol(" ", space);
+		return repeatSymbol(" ", space)+str+repeatSymbol(" ", length-str.length()-space);
 		
 	}
 	
@@ -59,13 +61,9 @@ public class SpeedTestTotalReportItem implements IReportItem {
 		return result.toString();
 	}
 
-	public IReportItem getPreviousRepItem() {
-		return previousRepItem;
-	}
 
-	public void setPreviousRepItem(IReportItem previousRepItem) {
-		this.previousRepItem = previousRepItem;
-	}
+
+	
 	
 	
 }

@@ -10,6 +10,7 @@ package com.khveras.jaxb.hierarchy;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -83,6 +84,10 @@ public class Timetable {
             trip = new ArrayList<Trip>();
         }
         return this.trip;
+    }
+    
+    public boolean addTrip(Trip newTrip) {
+    	return getTrip().add(newTrip);
     }
 
 	@Override
