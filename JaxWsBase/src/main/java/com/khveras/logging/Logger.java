@@ -8,8 +8,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.khveras.logging.TotalItemsFactory.TotalType;
-
 // Logger implementation for single-thread usage
 public class Logger {
 	public static final String REPORT_FILENAME="Report.txt";
@@ -43,7 +41,7 @@ public class Logger {
 	
 	private Logger(){};
 	
-	public static Logger initLogger(){
+	public static synchronized Logger initLogger(){
 		if (logger!=null){
 			logger.notify("Logger was already init");
 		}
@@ -53,9 +51,11 @@ public class Logger {
 	}
 	
 	public static Logger getLogger(){
+		System.out.println("TROLOL" + logger);
 		if (logger==null){
 			throw new RuntimeException("Can't perform any operation with logger until it is init");
 		}
+		
 		return logger;
 	}
 	
@@ -74,7 +74,7 @@ public class Logger {
 		}
 		try {
 			reportFile.createNewFile();
-			Logger.getLogger().debug("Report file created: "+reportFile.getAbsolutePath());
+//			Logger.getLogger().debug("Report file created: "+reportFile.getAbsolutePath());
 			return new FileOutputStream(reportFile);
 		} catch (IOException e) {
 			throw new RuntimeException("Error creating report file", e);
@@ -88,8 +88,10 @@ public class Logger {
 			
 			IReportItem previousItem=null;
 			
+			fos.write((" >>> Test results: "+LINE_SEPARATOR).getBytes());
+			
 			for (IReportItem currentItem: totalReport){
-				if ((previousItem!=null)&&(currentItem.getClass()==previousItem.getClass())){
+				if ((previousItem!=null)&&(currentItem.isSimilar(previousItem))){
 					fos.write((currentItem.getAppendBlock()+LINE_SEPARATOR).getBytes());
 				}
 				else{
@@ -99,6 +101,8 @@ public class Logger {
 			}
 			
 			fos.write(LINE_SEPARATOR.getBytes());
+			
+			fos.write((" >>> Debug: "+LINE_SEPARATOR+LINE_SEPARATOR).getBytes());
 			
 			for (IReportItem reportItem:ongoingReport){
 					fos.write((reportItem.getPresentation()+LINE_SEPARATOR).getBytes());
@@ -151,14 +155,14 @@ public class Logger {
 		log (LogLevel.WARNING, message);
 	}
 
-	public void addTotalsItem (TotalType totalType, Object... args){
+	public void addTotalsItem (TotalType totalType, String... args){
 		totalReport.add(TotalItemsFactory.createTotalReportItem(totalType, args));
 	}
 	
 	public void printTotals(){
 		IReportItem previousItem=null;
 		for (IReportItem currentItem: totalReport){
-			if ((previousItem!=null)&&(currentItem.getClass()==previousItem.getClass())){
+			if ((previousItem!=null)&&(currentItem.isSimilar(previousItem))){
 				notify(currentItem.getAppendBlock());
 			}
 			else{

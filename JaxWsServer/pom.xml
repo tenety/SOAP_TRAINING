@@ -6,7 +6,6 @@
 		<groupId>khveras.com</groupId>
 		<version>1.0</version>
 	</parent>
-  <groupId>JaxWs</groupId>
   <artifactId>JaxWsServer</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
@@ -20,7 +19,7 @@
 
   <dependencies>
   	<dependency>
-  		<groupId>JaxWs</groupId>
+  		<groupId>khveras.com</groupId>
   		<artifactId>JaxWsBase</artifactId>
   		<version>1.0</version>
   		<type>jar</type>

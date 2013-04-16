@@ -6,11 +6,11 @@
 		<groupId>khveras.com</groupId>
 		<version>1.0</version>
 	</parent>
-  <groupId>JaxWs</groupId>
+  <groupId>khveras.com</groupId>
   <artifactId>JaxWsBase</artifactId>
   <version>1.0</version>
 
-  <name>JaxWsClient</name>
+  <name>JaxWsBase</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

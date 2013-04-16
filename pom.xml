@@ -7,7 +7,11 @@
     <version>1.0</version>
     <name>JaxWs Root</name>
     <url>http://maven.apache.org</url>
-	
+	  <modules>
+        <module>JaxWsBase</module>
+        <module>JaxWsClient</module>
+		<module>JaxWsServer</module>		
+    </modules>
     <build>
         <plugins>
             <plugin>

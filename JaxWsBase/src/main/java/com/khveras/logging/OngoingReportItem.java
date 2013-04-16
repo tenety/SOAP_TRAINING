@@ -16,6 +16,10 @@ public class OngoingReportItem implements IReportItem {
 	public String getAppendBlock() {
 		return getPresentation();
 	}
+
+	public boolean isSimilar(IReportItem otherItem) {
+		return otherItem.getClass().equals(this.getClass());
+	}
 	
 	
 }

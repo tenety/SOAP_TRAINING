@@ -6,7 +6,7 @@
 		<groupId>khveras.com</groupId>
 		<version>1.0</version>
 	</parent>
-  <groupId>JaxWs</groupId>
+  <groupId>khveras.com</groupId>
   <artifactId>JaxWsClient</artifactId>
   <version>1.0</version>
 
@@ -29,11 +29,9 @@
     	<scope>compile</scope>
     </dependency>
     <dependency>
-    	<groupId>JaxWs</groupId>
+    	<groupId>khveras.com</groupId>
     	<artifactId>JaxWsBase</artifactId>
     	<version>1.0</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
     </dependency>
   </dependencies>
   
@@ -57,7 +55,7 @@
 					<properties>
 						<property>
 							<name>listener</name>
-							<value>com.khveras.logging.JunitSpeedTestsListener</value>
+							<value>com.khveras.logging.JunitUnviversalListener</value>
 						</property>
 					</properties>
 				</configuration>
