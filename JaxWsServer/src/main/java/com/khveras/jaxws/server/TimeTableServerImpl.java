@@ -7,6 +7,8 @@ import com.khveras.jaxws.baseObjects.EditTrnDestRequest;
 import com.khveras.jaxws.baseObjects.Station;
 import com.khveras.jaxws.baseObjects.TimeTablePortType;
 import com.khveras.jaxws.baseObjects.Trip;
+import com.khveras.jaxws.validators.BaseOperationsValidator;
+import com.khveras.logging.Logger;
 import com.sun.xml.internal.ws.developer.SchemaValidation;
 
 
@@ -19,32 +21,29 @@ import com.sun.xml.internal.ws.developer.SchemaValidation;
 public class TimeTableServerImpl implements TimeTablePortType {
 	
 	public static void main( String[] args ) {
-		Endpoint.publish( "http://localhost:8081/timeTableService", new TimeTableServerImpl() );
+		Logger.initLogger();
+		Endpoint.publish( "http://localhost:8082/timeTableService", new TimeTableServerImpl() );
+		Logger.getLogger().debug("Server started");
 	}
 
 	public String addTrip(Trip addTripInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		return BaseOperationsValidator.validateAddTrip(addTripInputPart);
 	}
 
 	public String editTrainDestination(EditTrnDestRequest editTrnDestInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		return BaseOperationsValidator.validateEditTrainDestination(editTrnDestInputPart);
 	}
 
 	public String addBus(Trip addBusInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		return BaseOperationsValidator.validateAddBus(addBusInputPart);
 	}
 
 	public String deleteBus(String deleteBusInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		return BaseOperationsValidator.validateDeleteBus(deleteBusInputPart);
 	}
 
 	public Trip getTrainListByDestination(Station getTrnByDestInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		return BaseOperationsValidator.validateGetTrainListByDestination(getTrnByDestInputPart);
 	}
 
 }

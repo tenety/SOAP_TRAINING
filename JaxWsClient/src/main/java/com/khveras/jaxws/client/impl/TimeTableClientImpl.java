@@ -1,4 +1,4 @@
-package com.khveras.jaxws.client;
+package com.khveras.jaxws.client.impl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,10 +12,11 @@ import com.khveras.jaxws.baseObjects.EditTrnDestRequest;
 import com.khveras.jaxws.baseObjects.Station;
 import com.khveras.jaxws.baseObjects.TimeTablePortType;
 import com.khveras.jaxws.baseObjects.Trip;
+import com.khveras.jaxws.client.exceptions.ClientOperationException;
 
 public class TimeTableClientImpl implements TimeTablePortType {
     
-	public static final String DEFAULT_URL = "http://localhost:8080/timeTableService?wsdl";
+	public static final String DEFAULT_URL = "http://localhost:8082/timeTableService?wsdl";
 	
 	public static final QName DEFAULT_QNAME = new QName("http://www.khveras.com/TimeTableService", "timeTableService");
 	
@@ -31,7 +32,13 @@ public class TimeTableClientImpl implements TimeTablePortType {
 			return cachedServices.get(wsIdentifier);
 		}
 		else{
-			TimeTableClientImpl newInstance=new TimeTableClientImpl(createPort(wsdlLocation, serviceName));
+			TimeTableClientImpl newInstance;
+			try{
+				newInstance=new TimeTableClientImpl(createPort(wsdlLocation, serviceName));
+			}
+			catch (RuntimeException e){
+				throw new ClientOperationException("Unable to instantiate connect to server", e);
+			}
 			cachedServices.put(wsIdentifier, newInstance);
 			return newInstance;
 		}
@@ -57,28 +64,48 @@ public class TimeTableClientImpl implements TimeTablePortType {
     }
 	
 	public String addTrip(Trip addTripInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return port.addTrip(addTripInputPart);
+		}
+		catch (Exception e){
+			throw new ClientOperationException ("Unable to add trip: "+e.getMessage());
+		}
 	}
 
 	public String editTrainDestination(EditTrnDestRequest editTrnDestInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return port.editTrainDestination(editTrnDestInputPart);
+		}
+		catch (Exception e){
+			throw new ClientOperationException ("Unable to edit train destination: "+e.getMessage());
+		}
 	}
 
 	public String addBus(Trip addBusInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return port.addBus(addBusInputPart);
+		}
+		catch (Exception e){
+			throw new ClientOperationException ("Unable to add bus: "+e.getMessage());
+		}
 	}
 
 	public String deleteBus(String deleteBusInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return port.deleteBus(deleteBusInputPart);
+		}
+		catch (Exception e){
+			throw new ClientOperationException ("Unable to delete bus: "+e.getMessage());
+		}
 	}
 
 	public Trip getTrainListByDestination(Station getTrnByDestInputPart) {
-		// TODO Auto-generated method stub
-		return null;
+		try{
+			return port.getTrainListByDestination(getTrnByDestInputPart);
+		}
+		catch (Exception e){
+			throw new ClientOperationException ("Unable to get trains by destination station: "+e.getMessage());
+		}
 	}
    
     

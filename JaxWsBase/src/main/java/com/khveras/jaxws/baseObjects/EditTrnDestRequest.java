@@ -36,10 +36,20 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "editTrnDestRequest", namespace = "http://www.khveras.com/TimeTableSchema")
 public class EditTrnDestRequest {
 
-    @XmlElement(namespace = "", required = true)
+	@XmlElement(namespace = "", required = true)
     protected String trnID;
     @XmlElement(namespace = "", required = true)
     protected Station newDestination;
+    
+    public EditTrnDestRequest(){
+    	super();
+    }
+    
+    public EditTrnDestRequest(String trnID, Station newDestination) {
+		super();
+		this.trnID = trnID;
+		this.newDestination = newDestination;
+	}
 
     /**
      * Gets the value of the trnID property.
