@@ -16,7 +16,7 @@ import com.khveras.jaxws.client.exceptions.ClientOperationException;
 
 public class TimeTableClientImpl implements TimeTablePortType {
     
-	public static final String DEFAULT_URL = "http://localhost:8082/timeTableService?wsdl";
+	public static final String DEFAULT_URL = "http://localhost:8080/JaxWsServer-1.0/timetableservice?wsdl";
 	
 	public static final QName DEFAULT_QNAME = new QName("http://www.khveras.com/TimeTableService", "timeTableService");
 	

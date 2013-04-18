@@ -2,6 +2,7 @@ package com.khveras.jaxws.client.tests;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.khveras.jaxws.baseObjects.Station;
@@ -48,6 +49,7 @@ public class AddBusTest {
 						+ inValidTrip.getDestStation(), response);
 	}
 
+	@Ignore
 	@Test(expected = ClientOperationException.class)
 	public void checkInvalidTzRequest() {
 		Trip inValidTrip = RandomTimeTableFactory.createRandomTrip();

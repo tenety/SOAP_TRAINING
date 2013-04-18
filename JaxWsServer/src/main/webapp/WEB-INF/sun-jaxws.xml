@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+	version="2.0">
+	<endpoint name="TimeTableService"
+		implementation="com.khveras.jaxws.server.TimeTableServerImpl"
+		url-pattern="/timetableservice"
+		wsdl="WEB-INF/wsdl/TimeTable.wsdl"
+		service="{http://www.khveras.com/TimeTableService}timeTableService"
+		port="{http://www.khveras.com/TimeTableService}timeTableService-soap11" />
+		<!--properties>
+                    <entry key="schema-validation-enabled" value="true" />
+        </properties-->
+</endpoints>

@@ -2,6 +2,7 @@ package com.khveras.jaxws.client.tests;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.khveras.jaxws.baseObjects.Station;
@@ -43,6 +44,7 @@ public class AddTripTest {
 		Assert.assertEquals(ResponseMessages.RESPONSE_NOT_MATCH, ResponseMessages.SAME_STATIONS_FORBIDDEN+inValidTrip.getDestStation(), response);
 	}
 	
+	@Ignore
 	@Test (expected= ClientOperationException.class)
 	public void checkInvalidTzRequest() {
 		Trip inValidTrip = RandomTimeTableFactory.createRandomTrip();

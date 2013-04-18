@@ -41,19 +41,10 @@ public class Logger {
 	
 	private Logger(){};
 	
-	public static synchronized Logger initLogger(){
-		if (logger!=null){
-			logger.notify("Logger was already init");
-		}
-		logger = new Logger();
-		
-		return logger;
-	}
-	
+
 	public static Logger getLogger(){
-		System.out.println("TROLOL" + logger);
 		if (logger==null){
-			throw new RuntimeException("Can't perform any operation with logger until it is init");
+			logger = new Logger();
 		}
 		
 		return logger;

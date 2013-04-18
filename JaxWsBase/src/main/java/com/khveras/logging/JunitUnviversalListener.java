@@ -18,7 +18,6 @@ public class JunitUnviversalListener extends RunListener {
 	 *            describes the tests to be run
 	 */
 	public void testRunStarted(Description description) throws Exception {
-		Logger.initLogger();
 		Logger.getLogger().log(LogLevel.JUNIT, "Tests started!");
 	}
 
