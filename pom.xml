@@ -5,7 +5,7 @@
     <artifactId>jaxws-root</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
-    <name>JaxWs Root</name>
+    <name>JaxWs root</name>
     <url>http://maven.apache.org</url>
 	  <modules>
         <module>JaxWsBase</module>
